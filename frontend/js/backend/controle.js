@@ -1,14 +1,16 @@
-let id;
-let name;
-let category;
-let deliveryEstimate;
-let rating;
-let about;
-let hours;
+var flag = true;
 
 function salvar() {
+    if (flag == true) {
+        inserir();
+    } else {
+        console.log("Alterar")
+        alterar();
+    }
+}
+
+function inserir() {
     // recupera os valores da tela para enviar no post
-    let id = $('#id').val();
     let name = $('#name').val();
     let category = $('#category').val();
     let deliveryEstimate = $('#deliveryEstimate').val();
@@ -29,15 +31,14 @@ function salvar() {
         }, (result) => {
             Swal.fire({
                 title: 'Cadastro realizado com sucesso!',
-                showClass: {
-                    popup: 'animated fadeInDown faster'
-                },
-                hideClass: {
-                    popup: 'animated fadeOutUp faster'
-                }
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                limpaDados();
+                window.location.href = "listar.html"
             })
-            limpaDados();
-            window.location.href = "listar.html";
+
         });
 }
 
@@ -69,15 +70,24 @@ function limpaDados() {
     $('#hours').val("");
 }
 
+function redirecionaCadastro(id) {
+    window.location.href = "cadastro.html?id=" + id;
+}
+
 function buscarFiltro() {
-    // recupera o valor da tela para pesquisar
-    let search = $("#search").val();
-
-    s.get("http://localhost:3000/restaurants?search=" + search, (data) => {
-        $each(data, () => {
-
-        });
+    let id = window.location.href.split("=")[1];
+    $.get("http://localhost:3000/restaurants/" + id, (data) => {
+        console.log(data)
+        flag = false;
+        $("#id").val(data.id);
+        $("#name").val(data.name);
+        $("#category").val(data.category);
+        $("#deliveryEstimate").val(data.deliveryEstimate);
+        $("#rating").val(data.rating);
+        $("#about").val(data.about);
+        $("#hours").val(data.hours);
     });
+
 }
 
 function buscar() {
@@ -88,12 +98,12 @@ function buscar() {
         $.each(data, (i, item) => {
             ul.append(`<tr>
             <th scope="row" onclick="editar(${item.id})">${item.id}</th> 
-            <td onclick="buscarFiltro(${item.id})">${item.name}</td>
-            <td onclick="buscarFiltro(${item.id})">${item.category}</td>
-            <td onclick="buscarFiltro(${item.id})">${item.deliveryEstimate}</td>
-            <td onclick="buscarFiltro(${item.id})">${item.rating}</td>
-            <td onclick="buscarFiltro(${item.id})">${item.about}</td>
-            <td onclick="buscarFiltro(${item.id})">${item.hours}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.name}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.category}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.deliveryEstimate}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.rating}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.about}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.hours}</td>
             <td> <a><i class="fas fa-trash" onclick="apagar(${item.id})"></i></a></td>
             </tr>`)
         });
@@ -113,7 +123,7 @@ function apagar(id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Excluir!'
     }).then((result) => {
         if (result.value) {
             $.ajax({
@@ -136,6 +146,7 @@ function apagar(id) {
 }
 
 function alterar() {
+    console.log("entrou Alterar")
     let id = $('#id').val();
     let name = $('#name').val();
     let category = $('#category').val();
@@ -145,13 +156,20 @@ function alterar() {
     let hours = $('#hours').val();
 
     $.ajax({
-        url: 'http://localhost:3000/restaurants',
+        url: 'http://localhost:3000/restaurants/' + id,
         type: 'put',
         success: function (response) {
+            Swal.fire({
+                title: 'Cadastro realizado com sucesso!',
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                window.location.href = "listar.html"
+            })
 
         },
         data: {
-            'id': id,
             'name': name,
             'category': category,
             'deliveryEstimate': deliveryEstimate,
@@ -160,14 +178,4 @@ function alterar() {
             'hours': hours
         }
     });
-}
-
-function preencheDados() {
-    $('#id').val(id);
-    $('#name').val(name);
-    $('#category').val(category);
-    $('#deliveryEstimate').val(deliveryEstimate);
-    $('#rating').val(rating);
-    $('#about').val(about);
-    $('#hours').val(hours);
 }

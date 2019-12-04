@@ -9,9 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <title>Dados do Restaurante</title>
 </head>
 
-<body>
+<body onload="buscarFiltro()">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <a class="navbar-brand">Restaurants</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -43,6 +44,7 @@
                 <div class="form-group">
                     <label for="name">Nome</label>
                     <input type="text" class="form-control" id="name" name="name">
+                    <input type="hidden" class="form-control" id="id" name="id">
                 </div>
 
                 <div class="form-group">
@@ -71,6 +73,7 @@
                 </div>
 
                 <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
+                <button type="button" class="btn btn-secondary" onclick="limpaDados()">Limpar</button>
             </form>
         </div>
     </div>

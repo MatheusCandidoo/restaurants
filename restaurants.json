@@ -1,16 +1,16 @@
 {
   "restaurants": [
     {
-      "id": "1",
       "name": "Bread & Bakery",
       "category": "Padaria",
       "deliveryEstimate": "25m",
-      "rating": 4.9,
+      "rating": "4.9",
       "about": "A Bread & Brakery tem 40 anos de mercado. Fazemos os melhores doces e pães. Compre e confira.",
-      "hours": "Funciona de segunda à sexta, de 8h às 23h"
+      "hours": "Funciona de segunda à sexta, de 8h às 23h",
+      "id": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Burger House",
       "category": "Hamburgers",
       "deliveryEstimate": "100m",
@@ -19,7 +19,7 @@
       "hours": "Funciona todos os dias, de 10h às 22h"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Coffee Corner",
       "category": "Cafeteria",
       "deliveryEstimate": "30-40m",
@@ -29,7 +29,7 @@
       "hours": "Funciona de segunda à sábado, de 6h às 22h"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Green Food",
       "category": "Saudável",
       "deliveryEstimate": "75m",
@@ -38,7 +38,7 @@
       "hours": "Somente em horário de almoço, das 11h às 15h"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Ice Cream",
       "category": "Sorvetes",
       "deliveryEstimate": "40-65m",
@@ -47,13 +47,49 @@
       "hours": "Funciona todos os dias, de 10h às 1h"
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Tasty Treats",
       "category": "Doces",
       "deliveryEstimate": "20m",
       "rating": 4.4,
       "about": "A doceria com mais tradição da cidade",
       "hours": "Funciona de segunda à sábado, de 8h às 23h"
+    },
+    {
+      "name": "Ediao Lanches",
+      "category": "Lanchonete",
+      "deliveryEstimate": "50m",
+      "rating": "4.7",
+      "about": "Lanchonete de lanches grandes e baratos",
+      "hours": "Segunda à Domingo das 18 as 03",
+      "id": 7
+    },
+    {
+      "name": "Noemi",
+      "category": "Lanchonete",
+      "deliveryEstimate": "120m",
+      "rating": "1.0",
+      "about": "Lanchonete do desespero",
+      "hours": "Sempre",
+      "id": 8
+    },
+    {
+      "name": "POPEDI",
+      "category": "LANCHONETE",
+      "deliveryEstimate": "90m",
+      "rating": "2.0",
+      "about": "Lanchonete do desespero 2",
+      "hours": "Sempre",
+      "id": 9
+    },
+    {
+      "name": "Lanchonete Universitária",
+      "category": "Lanchonete",
+      "deliveryEstimate": "Não entrega",
+      "rating": "4.0",
+      "about": "Vende de tudo",
+      "hours": "Segunda à Domingo das 10 as 23",
+      "id": 10
     }
   ]
 }
