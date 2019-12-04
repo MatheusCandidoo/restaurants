@@ -1,7 +1,7 @@
 {
   "restaurants": [
     {
-      "id": "bread-bakery",
+      "id": "1",
       "name": "Bread & Bakery",
       "category": "Padaria",
       "deliveryEstimate": "25m",
@@ -10,7 +10,7 @@
       "hours": "Funciona de segunda à sexta, de 8h às 23h"
     },
     {
-      "id": "burger-house",
+      "id": "2",
       "name": "Burger House",
       "category": "Hamburgers",
       "deliveryEstimate": "100m",
@@ -19,7 +19,7 @@
       "hours": "Funciona todos os dias, de 10h às 22h"
     },
     {
-      "id": "coffee-corner",
+      "id": "3",
       "name": "Coffee Corner",
       "category": "Cafeteria",
       "deliveryEstimate": "30-40m",
@@ -29,7 +29,7 @@
       "hours": "Funciona de segunda à sábado, de 6h às 22h"
     },
     {
-      "id": "green-food",
+      "id": "4",
       "name": "Green Food",
       "category": "Saudável",
       "deliveryEstimate": "75m",
@@ -38,7 +38,7 @@
       "hours": "Somente em horário de almoço, das 11h às 15h"
     },
     {
-      "id": "ice-cream",
+      "id": "5",
       "name": "Ice Cream",
       "category": "Sorvetes",
       "deliveryEstimate": "40-65m",
@@ -47,7 +47,7 @@
       "hours": "Funciona todos os dias, de 10h às 1h"
     },
     {
-      "id": "tasty-treats",
+      "id": "6",
       "name": "Tasty Treats",
       "category": "Doces",
       "deliveryEstimate": "20m",
@@ -55,4 +55,5 @@
       "about": "A doceria com mais tradição da cidade",
       "hours": "Funciona de segunda à sábado, de 8h às 23h"
     }
-  ]}
+  ]
+}
