@@ -29,7 +29,7 @@ function salvar() {
             "hours": hours
         }, (result) => {
             // função comeback da requisição
-
+            
         });
 }
 
@@ -89,12 +89,11 @@ function alterar() {
     let about = $('#about').val();
     let hours = $('#hours').val();
 
-    limparTabela()
     $.ajax({
-        url: 'http://localhost:3000/tipoLoc',
+        url: 'http://127.0.0.1/restaurants',
         type: 'put',
         success: function (response) {
-            buscaDados();
+            
         },
         data: {
             'id': id,
