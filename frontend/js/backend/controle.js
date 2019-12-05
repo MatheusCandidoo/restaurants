@@ -1,8 +1,10 @@
 var flag = true;
 
 function salvar() {
-    if (validarCampos) {
+    if (validarCampos()) {
+        console.log("validou")
         if (flag == true) {
+            console.log("Inserir")
             inserir();
         } else {
             console.log("Alterar")
@@ -78,17 +80,19 @@ function redirecionaCadastro(id) {
 
 function buscarFiltro() {
     let id = window.location.href.split("=")[1];
-    $.get("http://localhost:3000/restaurants/" + id, (data) => {
-        console.log(data)
-        flag = false;
-        $("#id").val(data.id);
-        $("#name").val(data.name);
-        $("#category").val(data.category);
-        $("#deliveryEstimate").val(data.deliveryEstimate);
-        $("#rating").val(data.rating);
-        $("#about").val(data.about);
-        $("#hours").val(data.hours);
-    });
+    if (id) {
+        $.get("http://localhost:3000/restaurants/" + id, (data) => {
+            console.log(data)
+            flag = false;
+            $("#id").val(data.id);
+            $("#name").val(data.name);
+            $("#category").val(data.category);
+            $("#deliveryEstimate").val(data.deliveryEstimate);
+            $("#rating").val(data.rating);
+            $("#about").val(data.about);
+            $("#hours").val(data.hours);
+        });
+    }
 
 }
 function buscarNome() {
@@ -177,7 +181,7 @@ function alterar() {
         type: 'put',
         success: function (response) {
             Swal.fire({
-                title: 'Cadastro realizado com sucesso!',
+                title: 'Alteração realizada com sucesso!',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK'
@@ -224,12 +228,12 @@ function validarCampos() {
         flag = false;
         $('#hours').css("background", "#ff6961");
     }
-
-    Swal.fire({
-        icon: 'error',
-        title: 'Opa... Algo deu errado!',
-        text: 'Os campos marcados com * devem ser preenchidos'
-    })
-
+    if (!flag) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Opa... Algo deu errado!',
+            text: 'Os campos marcados com * devem ser preenchidos'
+        })
+    }
     return flag;
 }
