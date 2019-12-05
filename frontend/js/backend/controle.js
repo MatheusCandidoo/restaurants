@@ -1,11 +1,13 @@
 var flag = true;
 
 function salvar() {
-    if (flag == true) {
-        inserir();
-    } else {
-        console.log("Alterar")
-        alterar();
+    if (validarCampos) {
+        if (flag == true) {
+            inserir();
+        } else {
+            console.log("Alterar")
+            alterar();
+        }
     }
 }
 
@@ -77,6 +79,21 @@ function redirecionaCadastro(id) {
 function buscarFiltro() {
     let id = window.location.href.split("=")[1];
     $.get("http://localhost:3000/restaurants/" + id, (data) => {
+        console.log(data)
+        flag = false;
+        $("#id").val(data.id);
+        $("#name").val(data.name);
+        $("#category").val(data.category);
+        $("#deliveryEstimate").val(data.deliveryEstimate);
+        $("#rating").val(data.rating);
+        $("#about").val(data.about);
+        $("#hours").val(data.hours);
+    });
+
+}
+function buscarNome() {
+    let nome = $('#seach').val();
+    $.get("http://localhost:3000/restaurants?name=" + search, (data) => {
         console.log(data)
         flag = false;
         $("#id").val(data.id);
@@ -178,4 +195,41 @@ function alterar() {
             'hours': hours
         }
     });
+}
+
+function validarCampos() {
+    let flag = true;
+
+    if ($('#name').val() == '') {
+        flag = false;
+        $('#name').css("background", "#ff6961");
+    }
+    if ($('#category').val() == '') {
+        flag = false;
+        $('#category').css("background", "#ff6961");
+    }
+    if ($('#deliveryEstimate').val() == '') {
+        flag = false;
+        $('#deliveryEstimate').css("background", "#ff6961");
+    }
+    if ($('#rating').val() == '') {
+        flag = false;
+        $('#rating').css("background", "#ff6961");
+    }
+    if ($('#about').val() == '') {
+        flag = false;
+        $('#about').css("background", "#ff6961");
+    }
+    if ($('#hours').val() == '') {
+        flag = false;
+        $('#hours').css("background", "#ff6961");
+    }
+
+    Swal.fire({
+        icon: 'error',
+        title: 'Opa... Algo deu errado!',
+        text: 'Os campos marcados com * devem ser preenchidos'
+    })
+
+    return flag;
 }
