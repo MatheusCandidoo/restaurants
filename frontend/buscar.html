@@ -19,7 +19,7 @@
     <title>Restaurantes</title>
   </head>
 
-  <body onload="buscar()">
+  <body onload="buscarNome()">
     <nav
       class="navbar navbar-expand-lg navbar-light"
       style="background-color: #e3f2fd;"
@@ -44,15 +44,27 @@
           <li class="nav-item">
             <a class="nav-link" href="cadastro.html">Cadastrar</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="buscar.html">Buscar</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="listar.html">Restaurantes</a>
           </li>
         </ul>
       </div>
     </nav>
+
+    <div class="card-body">
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Digite um nome"
+          aria-label="Digite um nome"
+        />
+        <button type="button" class="btn btn-dark">Buscar</button>
+      </form>
+    </div>
 
     <div class="card center">
       <div class="card-body">

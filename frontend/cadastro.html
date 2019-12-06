@@ -1,88 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <script type="text/javascript" src="js/backend/controle.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <title>Dados do Restaurante</title>
-</head>
+  </head>
 
-<body onload="buscarFiltro()">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand">Restaurants</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.html">Início</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="cadastro.html">Cadastrar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="listar.html">Restaurantes</a>
-                </li>
-            </ul>
-        </div>
+  <body onload="buscarFiltro()">
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #e3f2fd;"
+    >
+      <a class="navbar-brand">Restaurants</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Início</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="cadastro.html">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="buscar.html">Buscar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listar.html">Restaurantes</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
-        <div class="card center">
-            <div class="card-body">
-            <form>
-                <center>
-                    <h1>Dados de Restaurante</h1>
-                </center>
+    <div class="card center">
+      <div class="card-body">
+        <form>
+          <center>
+            <h1>Dados de Restaurante</h1>
+          </center>
 
-                <div class="form-group">
-                    <label for="name">Nome*</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                    <input type="hidden" class="form-control" id="id" name="id">
-                </div>
+          <div class="form-group">
+            <label for="name">Nome*</label>
+            <input type="text" class="form-control" id="name" name="name" />
+            <input type="hidden" class="form-control" id="id" name="id" />
+          </div>
 
-                <div class="form-group">
-                    <label for="category">Categoria*</label>
-                    <input type="text" class="form-control" id="category" name="category">
-                </div>
+          <div class="form-group">
+            <label for="category">Categoria*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="category"
+              name="category"
+            />
+          </div>
 
-                <div class="form-group">
-                    <label for="deliveryEstimate">Tempo de entrega*</label>
-                    <input type="text" class="form-control" id="deliveryEstimate" name="deliveryEstimate">
-                </div>
+          <div class="form-group">
+            <label for="deliveryEstimate">Tempo de entrega*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="deliveryEstimate"
+              name="deliveryEstimate"
+            />
+          </div>
 
-                <div class="form-group">
-                    <label for="rating">Avaliação*</label>
-                    <input type="text" class="form-control" id="rating" name="rating">
-                </div>
+          <div class="form-group">
+            <label for="rating">Avaliação*</label>
+            <input type="text" class="form-control" id="rating" name="rating" />
+          </div>
 
-                <div class="form-group">
-                    <label for="about">Sobre do Restaurante*</label>
-                    <input type="text" class="form-control" id="about" name="about">
-                </div>
+          <div class="form-group">
+            <label for="about">Sobre do Restaurante*</label>
+            <input type="text" class="form-control" id="about" name="about" />
+          </div>
 
-                <div class="form-group">
-                    <label for="hours">Horário de funcionamento*</label>
-                    <input type="text" class="form-control" id="hours" name="hours">
-                </div>
+          <div class="form-group">
+            <label for="hours">Horário de funcionamento*</label>
+            <input type="text" class="form-control" id="hours" name="hours" />
+          </div>
 
-                <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
-                <button type="button" class="btn btn-secondary" onclick="limpaDados()">Limpar</button>
-            </form>
-        </div>
+          <button type="button" class="btn btn-primary" onclick="salvar()">
+            Salvar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="limpaDados()"
+          >
+            Limpar
+          </button>
+        </form>
+      </div>
     </div>
+  </body>
 
-
-</body>
-
-<script>
-    
-</script>
-
+  <script></script>
 </html>
