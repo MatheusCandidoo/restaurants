@@ -96,17 +96,23 @@ function buscarFiltro() {
   }
 }
 function buscarNome() {
-  let nome = $("#seach").val();
-  $.get("http://localhost:3000/restaurants?name=" + search, data => {
+  let nome = $("#search").val();
+  console.log("http://localhost:3000/restaurants?name=" + nome);
+  $.get("http://localhost:3000/restaurants?name=" + nome, data => {
     console.log(data);
-    flag = false;
-    $("#id").val(data.id);
-    $("#name").val(data.name);
-    $("#category").val(data.category);
-    $("#deliveryEstimate").val(data.deliveryEstimate);
-    $("#rating").val(data.rating);
-    $("#about").val(data.about);
-    $("#hours").val(data.hours);
+    let ul = $("#tabela");
+    $.each(data, (i, item) => {
+      ul.append(`<tr>
+            <th scope="row" onclick="editar(${item.id})">${item.id}</th> 
+            <td onclick="redirecionaCadastro(${item.id})">${item.name}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.category}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.deliveryEstimate}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.rating}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.about}</td>
+            <td onclick="redirecionaCadastro(${item.id})">${item.hours}</td>
+            <td> <a><i class="fas fa-trash" onclick="apagar(${item.id})"></i></a></td>
+            </tr>`);
+    });
   });
 }
 

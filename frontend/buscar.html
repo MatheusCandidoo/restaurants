@@ -16,10 +16,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://kit.fontawesome.com/4d2ed99049.js"></script>
     <title>Restaurantes</title>
   </head>
 
-  <body onload="buscarNome()">
+  <body>
     <nav
       class="navbar navbar-expand-lg navbar-light"
       style="background-color: #e3f2fd;"
@@ -56,13 +57,13 @@
 
     <div class="card-body">
       <form class="form-inline my-2 my-lg-0">
-        <input
+        <input id="search"
           class="form-control mr-sm-2"
           type="search"
           placeholder="Digite um nome"
           aria-label="Digite um nome"
         />
-        <button type="button" class="btn btn-dark">Buscar</button>
+        <button type="button" class="btn btn-dark" onclick="buscarNome()">Buscar</button>
       </form>
     </div>
 
@@ -83,28 +84,6 @@
           </thead>
         </table>
       </div>
-    </div>
-
-    <div class="card-body">
-      <nav>
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Anterior</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" style="color: black" href="#">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" style="color: black" href="#">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" style="color: black" href="#">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" style="color: black" href="#">Próximo</a>
-          </li>
-        </ul>
-      </nav>
     </div>
   </body>
 </html>
